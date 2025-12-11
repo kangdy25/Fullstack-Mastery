@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  return <div>Hello World</div>;
+  return <div className="text-3xl font-bold text-sky-400">Hello World</div>;
 }
 
 export default App;
