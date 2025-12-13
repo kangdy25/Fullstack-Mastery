@@ -32,6 +32,24 @@ function App() {
       <div className="m-5 h-50 w-50 bg-emerald-300 p-5">
         <div className="h-full w-full bg-purple-400"></div>
       </div>
+
+      {/* 5. 경계선 */}
+      <div className="rounded-md border">border</div>
+      <div className="rounded-xl border-2">border-2</div>
+      <div className="m-5 border-x p-5">border-x</div>
+      <div className="m-5 border-y p-5">border-y</div>
+      <div className="m-5 border-x-2 border-emerald-400 p-5">border-x-2</div>
+      <div className="m-5 border-y-2 border-t-amber-500 p-5">border-y-2</div>
+      <div className="m-5 border-t-2 p-5">border-t-2</div>
+      <div className="m-5 border-r-2 p-5">border-r-2</div>
+
+      {/* 6. Flex */}
+      <div className="flex flex-row items-center justify-center">
+        <div className="h-10 w-10 border">1</div>
+        <div className="h-20 w-10 flex-1 border">2</div>
+        <div className="h-30 w-10 border">3</div>
+        <div className="h-40 w-10 border">4</div>
+      </div>
     </div>
   );
 }
