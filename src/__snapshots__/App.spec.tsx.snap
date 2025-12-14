@@ -3,148 +3,33 @@
 exports[`App Component UI Test > UI 구조가 이전 스냅샷과 일치해야 한다 1`] = `
 <div>
   <div>
-    <div
-      class="text-xs font-thin text-red-200"
+    <button
+      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3"
+      data-size="default"
+      data-slot="button"
+      data-variant="default"
     >
-      text-xs
+      버튼!!
+    </button>
+    <div
+      class="text-green-500"
+    >
+      isActive
     </div>
     <div
-      class="text-sm font-extrabold text-indigo-400"
+      class="text-primary"
     >
-      text-sm
+      Primary
     </div>
     <div
-      class="text-lg font-extralight text-cyan-500"
+      class="text-muted"
     >
-      text-lg
+      Muted
     </div>
     <div
-      class="text-xl font-bold text-amber-300"
+      class="text-destructive"
     >
-      text-xl
-    </div>
-    <div
-      class="text-2xl font-black text-emerald-700"
-    >
-      text-2xl
-    </div>
-    <div
-      class="text-[13px] text-[rgb(0,255,255)]"
-    >
-      text-13px
-    </div>
-    <div
-      class="bg-amber-100"
-    >
-      bg-amber-100
-    </div>
-    <div
-      class="w-full bg-red-500"
-    >
-      box
-    </div>
-    <div
-      class="w-[70px] bg-green-500"
-    >
-      box
-    </div>
-    <div
-      class="w-20 bg-blue-500"
-    >
-      box
-    </div>
-    <div
-      class="h-full bg-yellow-500"
-    >
-      box
-    </div>
-    <div
-      class="h-[70px] bg-violet-500"
-    >
-      box
-    </div>
-    <div
-      class="h-20 bg-sky-500"
-    >
-      box
-    </div>
-    <div
-      class="h-50 w-50 bg-red-300 p-5"
-    >
-      <div
-        class="h-full w-full bg-blue-400"
-      />
-    </div>
-    <div
-      class="m-5 h-50 w-50 bg-emerald-300 p-5"
-    >
-      <div
-        class="h-full w-full bg-purple-400"
-      />
-    </div>
-    <div
-      class="rounded-md border"
-    >
-      border
-    </div>
-    <div
-      class="rounded-xl border-2"
-    >
-      border-2
-    </div>
-    <div
-      class="m-5 border-x p-5"
-    >
-      border-x
-    </div>
-    <div
-      class="m-5 border-y p-5"
-    >
-      border-y
-    </div>
-    <div
-      class="m-5 border-x-2 border-emerald-400 p-5"
-    >
-      border-x-2
-    </div>
-    <div
-      class="m-5 border-y-2 border-t-amber-500 p-5"
-    >
-      border-y-2
-    </div>
-    <div
-      class="m-5 border-t-2 p-5"
-    >
-      border-t-2
-    </div>
-    <div
-      class="m-5 border-r-2 p-5"
-    >
-      border-r-2
-    </div>
-    <div
-      class="flex flex-row items-center justify-center"
-    >
-      <div
-        class="h-10 w-10 border"
-      >
-        1
-      </div>
-      <div
-        class="h-20 w-10 flex-1 border"
-      >
-        2
-      </div>
-      <div
-        class="h-30 w-10 border"
-      >
-        3
-      </div>
-      <div
-        class="h-40 w-10 border"
-      >
-        4
-      </div>
+      Destructive
     </div>
   </div>
 </div>
