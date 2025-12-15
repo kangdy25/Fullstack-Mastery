@@ -4,7 +4,7 @@ import { describe, it, expect, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
 import { toast } from "sonner";
 
-// 1. Sonner(Toast) 라이브러리 Mocking
+// Sonner(Toast) 라이브러리 Mocking
 vi.mock("sonner", () => ({
   toast: vi.fn(),
   Toaster: () => <div>Toaster Mock</div>,
