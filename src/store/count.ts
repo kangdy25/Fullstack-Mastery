@@ -1,24 +1,54 @@
 import { create } from "zustand";
-import { combine } from "zustand/middleware";
+import {
+  combine,
+  subscribeWithSelector,
+  persist,
+  createJSONStorage,
+  devtools,
+} from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
 export const useCountStore = create(
-  immer(
-    combine({ count: 0 }, (set, get) => ({
-      actions: {
-        increase: () => {
-          set((state) => {
-            state.count += 1;
-          });
-        },
-        decrease: () => {
-          set((state) => {
-            state.count -= 1;
-          });
-        },
+  devtools(
+    persist(
+      subscribeWithSelector(
+        immer(
+          combine({ count: 0 }, (set, get) => ({
+            actions: {
+              increase: () => {
+                set((state) => {
+                  state.count += 1;
+                });
+              },
+              decrease: () => {
+                set((state) => {
+                  state.count -= 1;
+                });
+              },
+            },
+          })),
+        ),
+      ),
+      {
+        name: "countStore",
+        partialize: (store) => ({ count: store.count }),
+        storage: createJSONStorage(() => sessionStorage),
       },
-    })),
+    ),
+    {
+      name: "countStore",
+    },
   ),
+);
+
+useCountStore.subscribe(
+  (store) => store.count,
+  (count, prevCount) => {
+    console.log(count, prevCount);
+
+    const store = useCountStore.getState();
+    useCountStore.setState((store) => ({}));
+  },
 );
 
 export const useCount = () => {
