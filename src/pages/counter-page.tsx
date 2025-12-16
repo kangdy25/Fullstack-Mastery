@@ -1,4 +1,4 @@
-import Controller from "@/components/ui/counter/controller";
+import Controller from "@/components/counter/controller";
 
 const CounterPage = () => {
   return (
