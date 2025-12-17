@@ -9,7 +9,7 @@ const initialState: {
   todos: [],
 };
 
-const useTodosStore = create(
+export const useTodosStore = create(
   immer(
     combine(initialState, (set) => ({
       actions: {

@@ -17,6 +17,14 @@ vi.mock("./pages/sign-up-page", () => ({
   default: () => <div>Sign Up Page Mock</div>,
 }));
 
+vi.mock("./pages/counter-page", () => ({
+  default: () => <div>Counter Page Mock</div>,
+}));
+
+vi.mock("./pages/todo-list-page", () => ({
+  default: () => <div>Todolist Page Mock</div>,
+}));
+
 describe("App Router & Layout 테스트", () => {
   // Case 1: 메인 페이지('/') 접속 테스트
   it("기본 경로('/')로 접속하면 IndexPage가 렌더링되어야 한다", () => {
@@ -55,7 +63,29 @@ describe("App Router & Layout 테스트", () => {
     expect(screen.getByText("Auth!")).toBeInTheDocument();
   });
 
-  // Case 4: 존재하지 않는 경로 테스트
+  // Case 4: 카운터 페이지('/counter') 접속 테스트
+  it("'/counter' 경로로 접속하면 CounterPage와 AuthLayout 헤더가 보여야 한다", () => {
+    render(
+      <MemoryRouter initialEntries={["/counter"]}>
+        <App />
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByText("Counter Page Mock")).toBeInTheDocument();
+  });
+
+  // Case 5: 회원가입 페이지('/todolist') 접속 테스트
+  it("'/todolist' 경로로 접속하면 TodoListPage가 보여야 한다", () => {
+    render(
+      <MemoryRouter initialEntries={["/todolist"]}>
+        <App />
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByText("Todolist Page Mock")).toBeInTheDocument();
+  });
+
+  // Case 6: 존재하지 않는 경로 테스트
   it("정의되지 않는 경로로 접속하면 404 페이지가 떠야 한다", () => {
     render(
       <MemoryRouter initialEntries={["/wrong-path"]}>
@@ -68,5 +98,7 @@ describe("App Router & Layout 테스트", () => {
     expect(screen.queryByText("Index Page Mock")).not.toBeInTheDocument();
     expect(screen.queryByText("Sign In Page Mock")).not.toBeInTheDocument();
     expect(screen.queryByText("Sign Up Page Mock")).not.toBeInTheDocument();
+    expect(screen.queryByText("Counter Page Mock")).not.toBeInTheDocument();
+    expect(screen.queryByText("Todolist Page Mock")).not.toBeInTheDocument();
   });
 });

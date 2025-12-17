@@ -9,7 +9,7 @@ const TodoListPage = () => {
       <h1 className="text-2xl font-bold">TodoListPage</h1>
       <TodoEditor />
       {todos.map((todo) => (
-        <TodoItem id={todo.id} content={todo.content} />
+        <TodoItem key={todo.id} id={todo.id} content={todo.content} />
       ))}
     </div>
   );
