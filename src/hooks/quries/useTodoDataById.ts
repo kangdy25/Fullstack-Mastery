@@ -5,7 +5,9 @@ export function useTodoDataById(id: number) {
   return useQuery({
     queryFn: () => fetchTodoById(id),
     queryKey: ["todos", id],
-    staleTime: 5000,
+
+    staleTime: 300000,
+    gcTime: 5000,
 
     // refetchOnMount: false,
     // refetchOnWindowFocus: false,
