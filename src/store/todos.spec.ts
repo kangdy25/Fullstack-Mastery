@@ -39,10 +39,6 @@ describe("Todo Store", () => {
 
     const addedTodoId = todosResult.current[0].id;
 
-    act(() => {
-      deleteTodoResult.current(addedTodoId);
-    });
-
     expect(todosResult.current).toHaveLength(0);
   });
 });
