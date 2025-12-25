@@ -8,17 +8,17 @@
     {
       "id": "dd70",
       "content": "영만이랑 놀기",
-      "isDone": false
+      "isDone": true
     },
     {
       "id": "ceff",
       "content": "철수랑 회의하기",
-      "isDone": false
+      "isDone": true
     },
     {
       "id": "6b9f",
       "content": "지호랑 정모하기",
-      "isDone": false
+      "isDone": true
     }
   ]
 }
