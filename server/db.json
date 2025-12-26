@@ -8,12 +8,12 @@
     {
       "id": "9590",
       "content": "히히",
-      "isDone": false
+      "isDone": true
     },
     {
       "id": "e6a8",
       "content": "기모링",
-      "isDone": false
+      "isDone": true
     }
   ]
 }
