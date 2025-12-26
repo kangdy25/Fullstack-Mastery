@@ -4,21 +4,6 @@
       "id": "1",
       "content": "Todo 1",
       "isDone": true
-    },
-    {
-      "id": "dd70",
-      "content": "영만이랑 놀기",
-      "isDone": true
-    },
-    {
-      "id": "ceff",
-      "content": "철수랑 회의하기",
-      "isDone": true
-    },
-    {
-      "id": "6b9f",
-      "content": "지호랑 정모하기",
-      "isDone": true
     }
   ]
 }
