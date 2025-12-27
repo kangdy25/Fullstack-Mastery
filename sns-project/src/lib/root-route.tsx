@@ -1,17 +1,24 @@
+import ForgetPasswordPage from "@/pages/forgetPasswordPage";
+import IndexPage from "@/pages/indexPage";
+import PostDetailPage from "@/pages/postDetailPage";
+import ProfileDetailPage from "@/pages/profileDetailPage";
+import ResetPasswordPage from "@/pages/resetPasswordPage";
+import SignInPage from "@/pages/signInPage";
+import SignUpPage from "@/pages/signUpPage";
 import React from "react";
 import { Navigate, Route, Routes } from "react-router";
 
 const RootRoute = () => {
   return (
     <Routes>
-      <Route path="/sign-in" />
-      <Route path="/sign-up" />
-      <Route path="/forget-password" />
+      <Route path="/sign-in" element={<SignInPage />} />
+      <Route path="/sign-up" element={<SignUpPage />} />
+      <Route path="/forget-password" element={<ForgetPasswordPage />} />
 
-      <Route path="/" />
-      <Route path="/post/:postId" />
-      <Route path="/profile/:userId" />
-      <Route path="/reset-password" />
+      <Route path="/" element={<IndexPage />} />
+      <Route path="/post/:postId" element={<PostDetailPage />} />
+      <Route path="/profile/:userId" element={<ProfileDetailPage />} />
+      <Route path="/reset-password" element={<ResetPasswordPage />} />
 
       <Route path="*" element={<Navigate to={"/"} />} />
     </Routes>
