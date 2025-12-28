@@ -28,6 +28,10 @@ const GlobalLayout = () => {
       <main className="m-auto w-full max-w-175 flex-1 border-x px-4 py-6">
         <Outlet />
       </main>
+
+      <footer className="text-muted-foreground border-t py-10 text-center">
+        @동붕이
+      </footer>
     </div>
   );
 };
