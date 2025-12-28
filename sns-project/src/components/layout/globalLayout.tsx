@@ -6,7 +6,7 @@ import { SunIcon } from "lucide-react";
 
 const GlobalLayout = () => {
   return (
-    <div className="">
+    <div className="flex min-h-[100vh] flex-col">
       <header className="h-15 border-b">
         <div className="m-auto flex h-full w-full max-w-175 justify-between px-4">
           <Link to={"/"} className="flex items-center gap-2">
@@ -25,7 +25,7 @@ const GlobalLayout = () => {
           </div>
         </div>
       </header>
-      <main>
+      <main className="m-auto w-full max-w-175 flex-1 border-x px-4 py-6">
         <Outlet />
       </main>
     </div>
