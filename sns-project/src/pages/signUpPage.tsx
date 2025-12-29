@@ -1,11 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useSignUp } from "@/hooks/mutations/useSignUp";
 import { useState } from "react";
 import { Link } from "react-router";
 
 const signUpPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { mutate: signUp } = useSignUp();
+
+  const handleSignUpClick = () => {
+    if (email.trim() === "") return;
+    if (password.trim() === "") return;
+
+    signUp({ email, password });
+  };
+
   return (
     <div className="flex flex-col gap-8">
       <div className="text-xl font-bold">회원가입</div>
@@ -30,7 +41,9 @@ const signUpPage = () => {
         />
       </div>
       <div>
-        <Button className="w-full">회원가입</Button>
+        <Button onClick={handleSignUpClick} className="w-full">
+          회원가입
+        </Button>
       </div>
       <div>
         <Link className="text-muted-foreground hover:underline" to={"/sign-in"}>
