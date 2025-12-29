@@ -1,7 +1,44 @@
-import React from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useState } from "react";
+import { Link } from "react-router";
 
 const signUpPage = () => {
-  return <div>signUpPage</div>;
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  return (
+    <div className="flex flex-col gap-8">
+      <div className="text-xl font-bold">회원가입</div>
+      <div className="flex flex-col gap-2">
+        <Input
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+          className="py-6"
+          type="email"
+          placeholder="example@abc.com"
+        />
+        <Input
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+          className="py-6"
+          type="password"
+          placeholder="password"
+        />
+      </div>
+      <div>
+        <Button className="w-full">회원가입</Button>
+      </div>
+      <div>
+        <Link className="text-muted-foreground hover:underline" to={"/sign-in"}>
+          이미 계정이 있다면? 로그인
+        </Link>
+      </div>
+    </div>
+  );
 };
 
 export default signUpPage;
