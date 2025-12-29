@@ -1,11 +1,24 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useSignInWithPassword } from "@/hooks/mutations/useSignInWithPassword";
 import { useState } from "react";
 import { Link } from "react-router";
 
 const signInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { mutate: signInWithPassword } = useSignInWithPassword();
+
+  const handleSignInWithPasswordClick = () => {
+    if (email.trim() === "") return;
+    if (password.trim() === "") return;
+
+    signInWithPassword({
+      email,
+      password,
+    });
+  };
 
   return (
     <div className="flex flex-col gap-8">
@@ -31,7 +44,9 @@ const signInPage = () => {
         />
       </div>
       <div>
-        <Button className="w-full">로그인</Button>
+        <Button onClick={handleSignInWithPasswordClick} className="w-full">
+          로그인
+        </Button>
       </div>
       <div>
         <Link className="text-muted-foreground hover:underline" to={"/sign-up"}>
