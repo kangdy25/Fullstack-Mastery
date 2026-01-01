@@ -6,21 +6,32 @@ import { Link } from "react-router";
 import githubLogo from "@/assets/github-mark.svg";
 import { useSignInWithOAuth } from "@/hooks/mutations/useSignInWithOAuth";
 import { toast } from "sonner";
+import { generateErrorMessage } from "@/lib/error";
 
 const signInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { mutate: signInWithPassword } = useSignInWithPassword({
-    onError: (error) => {
-      toast.error(error.message, {
-        position: "top-center",
-      });
+  const { mutate: signInWithPassword, isPending: isSignInWithPasswordPending } =
+    useSignInWithPassword({
+      onError: (error) => {
+        const message = generateErrorMessage(error);
+        toast.error(message, {
+          position: "top-center",
+        });
 
-      setPassword("");
-    },
-  });
-  const { mutate: signInWithOAuth } = useSignInWithOAuth();
+        setPassword("");
+      },
+    });
+  const { mutate: signInWithOAuth, isPending: isSignInWithOAuthPending } =
+    useSignInWithOAuth({
+      onError: (error) => {
+        const message = generateErrorMessage(error);
+        toast.error(message, {
+          position: "top-center",
+        });
+      },
+    });
 
   const handleSignInWithPasswordClick = () => {
     if (email.trim() === "") return;
@@ -39,11 +50,14 @@ const signInPage = () => {
     signInWithOAuth("github");
   };
 
+  const isPending = isSignInWithPasswordPending || isSignInWithOAuthPending;
+
   return (
     <div className="flex flex-col gap-8">
       <div className="text-xl font-bold">로그인</div>
       <div className="flex flex-col gap-2">
         <Input
+          disabled={isPending}
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
@@ -53,6 +67,7 @@ const signInPage = () => {
           placeholder="example@abc.com"
         />
         <Input
+          disabled={isPending}
           value={password}
           onChange={(e) => {
             setPassword(e.target.value);
@@ -63,10 +78,18 @@ const signInPage = () => {
         />
       </div>
       <div className="flex flex-col gap-2">
-        <Button onClick={handleSignInWithPasswordClick} className="w-full">
+        <Button
+          disabled={isPending}
+          onClick={handleSignInWithPasswordClick}
+          className="w-full"
+        >
           로그인
         </Button>
-        <Button onClick={handleSignInWithOAuthClick} variant={"outline"}>
+        <Button
+          disabled={isPending}
+          onClick={handleSignInWithOAuthClick}
+          variant={"outline"}
+        >
           <img src={githubLogo} className="h-4" />
           Github 계정으로 로그인
         </Button>
