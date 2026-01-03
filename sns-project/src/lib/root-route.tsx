@@ -1,4 +1,5 @@
 import GlobalLayout from "@/components/layout/globalLayout";
+import GuestOnlyLayout from "@/components/layout/guestOnlyLayout";
 import ForgetPasswordPage from "@/pages/forgetPasswordPage";
 import IndexPage from "@/pages/indexPage";
 import PostDetailPage from "@/pages/postDetailPage";
@@ -12,9 +13,11 @@ const RootRoute = () => {
   return (
     <Routes>
       <Route element={<GlobalLayout />}>
-        <Route path="/sign-in" element={<SignInPage />} />
-        <Route path="/sign-up" element={<SignUpPage />} />
-        <Route path="/forget-password" element={<ForgetPasswordPage />} />
+        <Route element={<GuestOnlyLayout />}>
+          <Route path="/sign-in" element={<SignInPage />} />
+          <Route path="/sign-up" element={<SignUpPage />} />
+          <Route path="/forget-password" element={<ForgetPasswordPage />} />
+        </Route>
 
         <Route path="/" element={<IndexPage />} />
         <Route path="/post/:postId" element={<PostDetailPage />} />
