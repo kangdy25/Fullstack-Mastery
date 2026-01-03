@@ -1,5 +1,6 @@
 import GlobalLayout from "@/components/layout/globalLayout";
 import GuestOnlyLayout from "@/components/layout/guestOnlyLayout";
+import MemberOnlyLayout from "@/components/layout/memberOnlyLayout";
 import ForgetPasswordPage from "@/pages/forgetPasswordPage";
 import IndexPage from "@/pages/indexPage";
 import PostDetailPage from "@/pages/postDetailPage";
@@ -19,10 +20,12 @@ const RootRoute = () => {
           <Route path="/forget-password" element={<ForgetPasswordPage />} />
         </Route>
 
-        <Route path="/" element={<IndexPage />} />
-        <Route path="/post/:postId" element={<PostDetailPage />} />
-        <Route path="/profile/:userId" element={<ProfileDetailPage />} />
-        <Route path="/reset-password" element={<ResetPasswordPage />} />
+        <Route element={<MemberOnlyLayout />}>
+          <Route path="/" element={<IndexPage />} />
+          <Route path="/post/:postId" element={<PostDetailPage />} />
+          <Route path="/profile/:userId" element={<ProfileDetailPage />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
+        </Route>
 
         <Route path="*" element={<Navigate to={"/"} />} />
       </Route>
