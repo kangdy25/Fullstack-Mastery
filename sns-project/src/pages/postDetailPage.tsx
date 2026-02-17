@@ -14,7 +14,7 @@ const postDetailPage = () => {
       <PostItem postId={Number(postId)} type="DETAIL" />
       <div className="mb-3 text-xl font-bold">댓글</div>
       <CommentEditor postId={Number(postId)} />
-      <CommentList />
+      <CommentList postId={Number(postId)} />
     </div>
   );
 };
