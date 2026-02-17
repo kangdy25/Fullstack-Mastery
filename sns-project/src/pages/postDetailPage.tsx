@@ -12,8 +12,8 @@ const postDetailPage = () => {
   return (
     <div>
       <PostItem postId={Number(postId)} type="DETAIL" />
-      <div className="text-xl font-bold">댓글</div>
-      <CommentEditor />
+      <div className="mb-3 text-xl font-bold">댓글</div>
+      <CommentEditor postId={Number(postId)} />
       <CommentList />
     </div>
   );
