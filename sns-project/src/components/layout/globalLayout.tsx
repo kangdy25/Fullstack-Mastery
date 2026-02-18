@@ -1,9 +1,7 @@
-import React from "react";
 import { Link, Outlet } from "react-router";
 import logo from "@/assets/logo.png";
-import defualtAvatar from "@/assets/default-avatar.jpg";
-import { SunIcon } from "lucide-react";
 import ProfileButton from "./header/profileButton";
+import ThemeButton from "./header/themeButton";
 
 const GlobalLayout = () => {
   return (
@@ -19,9 +17,7 @@ const GlobalLayout = () => {
             <div className="font-bold">한입 로그</div>
           </Link>
           <div className="flex items-center gap-5">
-            <div className="hover:bg-muted cursor-pointer rounded-full p-2">
-              <SunIcon />
-            </div>
+            <ThemeButton />
             <ProfileButton />
           </div>
         </div>
